@@ -34,7 +34,6 @@ efp10.element.addEventListener('change', function(){
   }
 })
 
-
 tattoo.element.addEventListener('change', function(){
   if (ambassador.element.checked == true) {
     ambassador.element.checked = false;
@@ -65,7 +64,7 @@ dtAmountInput.addEventListener('input', function(){
 
 
 function calculate_discounts(){
-  discounted.value = discount_amount() + dt_discount_amount();
+  discounted.value = Number((discount_amount() + dt_discount_amount()).toFixed(2));
 }
 
 function discount_amount(){
@@ -78,18 +77,22 @@ function discount_amount(){
       totalDiscount = totalDiscount * (100 - discount.discount) / 100;
     }
   });
-  return Number((totalDiscount).toFixed(2));
+  return totalDiscount;
 }
 
 function dt_discount_amount(){
   if(dtAmountInput.value == '' || dtAmountInput.value == null){
     return 0;
   }
-  var amount = parseFloat(dtAmountInput.value) * 0.85;
-  discounts.forEach(function(discount){
-    if (discount.element.checked == true){
-      amount = amount * (100 - discount.discount) / 100;
-    }
-  });
-  return parseFloat(amount);
+  var amount = parseFloat(dtAmountInput.value);
+  if(tattoo.element.checked == true){
+    return amount;
+  } else {
+    discounts.forEach(function(discount){
+      if (discount.element.checked == true){
+        amount = amount * (100 - discount.discount) / 100;
+      }
+    });
+  }
+  return parseFloat(amount * 0.85);
 }
