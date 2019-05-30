@@ -1,4 +1,5 @@
 var amountInput = document.getElementById("amount");
+var dtAmountInput = document.getElementById("dt-amount");
 var discounted = document.getElementById("discounted");
 
 // Declare discounts
@@ -10,10 +11,6 @@ var efp10 = {
   element: document.getElementById("efp10"),
   discount: 10
 };
-var daytime = {
-  element: document.getElementById("daytime"),
-  discount: 15
-};
 var ambassador = {
   element: document.getElementById("ambassador"),
   discount: 5
@@ -22,7 +19,7 @@ var tattoo = {
   element: document.getElementById("tattoo"),
   discount: 20
 };
-var discounts = [efp5, efp10, daytime, ambassador, tattoo];
+var discounts = [efp5, efp10, ambassador, tattoo];
 
 // Specific "uncheck" other discounts that don't apply
 efp5.element.addEventListener('change', function(){
@@ -39,20 +36,16 @@ efp10.element.addEventListener('change', function(){
 
 
 tattoo.element.addEventListener('change', function(){
-  [daytime, ambassador].forEach(function(disc){
-    if (disc.element.checked == true) {
-      disc.element.checked = false;
-    }
-  })
+  if (ambassador.element.checked == true) {
+    ambassador.element.checked = false;
+  }
 });
 
-[daytime, ambassador].forEach(function(disc){
-  disc.element.addEventListener('change', function(){
-    if(tattoo.element.checked == true){
-      tattoo.element.checked = false;
-    }
-  });
-})
+ambassador.element.addEventListener('change', function(){
+  if(tattoo.element.checked == true){
+    tattoo.element.checked = false;
+  }
+});
 
 // Calculate discounts every time we check something
 discounts.forEach(function(disc){
@@ -66,17 +59,37 @@ amountInput.addEventListener('input', function(){
   calculate_discounts();
 })
 
+dtAmountInput.addEventListener('input', function(){
+  calculate_discounts();
+})
+
+
 function calculate_discounts(){
+  discounted.value = discount_amount() + dt_discount_amount();
+}
+
+function discount_amount(){
   if(amountInput.value == '' || amountInput.value == null){
-    discounted.value = '';
-    return;
+    return 0;
   }
-  var amount = amountInput.value;
-  var totalDiscount = parseFloat(amount);
+  var totalDiscount = parseFloat(amountInput.value);
   discounts.forEach(function(discount){
     if (discount.element.checked == true){
       totalDiscount = totalDiscount * (100 - discount.discount) / 100;
     }
   });
-  discounted.value = Number((totalDiscount).toFixed(2));;
+  return Number((totalDiscount).toFixed(2));
+}
+
+function dt_discount_amount(){
+  if(dtAmountInput.value == '' || dtAmountInput.value == null){
+    return 0;
+  }
+  var amount = parseFloat(dtAmountInput.value) * 0.85;
+  discounts.forEach(function(discount){
+    if (discount.element.checked == true){
+      amount = amount * (100 - discount.discount) / 100;
+    }
+  });
+  return parseFloat(amount);
 }

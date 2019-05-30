@@ -7,20 +7,29 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container section">
       <h1 class="title">The Unofficial Brewdog Discount Calculator</h1>
-      <h4 class="title is-4">Amount:</h4>
-      <div class="field">
-        <div class="control">
-          <input class="input is-large" type="text" placeholder="Amount" id="amount">
+
+      <div class="columns">
+        <div class="column">
+          <h4 class="title is-4">Daytime Amount *</h4>
+          <div class="field">
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="Amount" id="dt-amount">
+            </div>
+          </div>
+          <em class="subtitle">* Before 5pm weekdays and before 12:30 weekends</em>
+        </div>
+        <div class="column">
+          <h4 class="title is-4">No Daytime Amount</h4>
+          <div class="field">
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="Amount" id="amount">
+            </div>
+          </div>
         </div>
       </div>
-      <h4 class="title is-4">After discounts:</h4>
-      <div class="field">
-        <div class="control">
-          <input class="input is-large" type="text" placeholder="" id="discounted" readonly>
-        </div>
-      </div>
+
       <h4 class="title is-4">Discounts:</h4>
       <div class="field">
         <div class="control">
@@ -43,17 +52,23 @@
         </div>
         <div class="control">
           <label class="checkbox">
-            <input type="checkbox" id="daytime">
-            <strong>EFP Daytime 15%</strong> - Before 5pm weekdays and before 12:30 weekends
-          </label>
-        </div>
-        <div class="control">
-          <label class="checkbox">
             <input type="checkbox" id="tattoo">
             <strong>Tattoo 20%</strong>
           </label>
         </div>
       </div>
+
+      <div class="columns">
+        <div class="column">
+          <h4 class="title is-4">Total</h4>
+          <div class="field">
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="" id="discounted" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="content">
         <strong class="title is-5">The rules</strong>
         <ul>
