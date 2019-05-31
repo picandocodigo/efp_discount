@@ -85,14 +85,14 @@ function dt_discount_amount(){
     return 0;
   }
   var amount = parseFloat(dtAmountInput.value);
+  discounts.forEach(function(discount){
+    if (discount.element.checked == true){
+      amount = amount * (100 - discount.discount) / 100;
+    }
+  });
   if(tattoo.element.checked == true){
     return amount;
   } else {
-    discounts.forEach(function(discount){
-      if (discount.element.checked == true){
-        amount = amount * (100 - discount.discount) / 100;
-      }
-    });
+    return amount * 0.85;
   }
-  return parseFloat(amount * 0.85);
 }
