@@ -11,8 +11,9 @@
 
 .discount{
   text-align:center;
-  border: 3px solid #00afdb;
-  background: #fff;
+  border: none;
+  background: #000;
+  color: #fff;
   margin-right: 5px;
   line-height: 1;
   box-sizing: border-box;
@@ -25,12 +26,12 @@
 }
 
 .discount *{
-  color: #00afdb;
+  color: #fff;
   font-size: 1.1em;
 }
 
 .discount.checked, .discount.checked *{
-  color: #fff !important;
+  color: #00afdb;
   background: #00afdb;
 }
 
@@ -39,5 +40,5 @@
 }
 
 .discount .checkbox strong, .discount label.checkbox{
-  color: #00afdb;
+  color: #fff;
 }
