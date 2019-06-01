@@ -26,28 +26,28 @@ efp5.element.addEventListener('change', function(){
   if (efp10.element.checked == true){
     efp10.element.checked = false;
   }
-  setCss(efp10.element);
+  refreshUI(efp10.element);
 });
 
 efp10.element.addEventListener('change', function(){
   if (efp5.element.checked == true){
     efp5.element.checked = false;
   }
-  setCss(efp5.element);
+  refreshUI(efp5.element);
 })
 
 tattoo.element.addEventListener('change', function(){
   if (ambassador.element.checked == true) {
     ambassador.element.checked = false;
   }
-  setCss(tattoo.element);
+  refreshUI(this);
 });
 
 ambassador.element.addEventListener('change', function(){
   if(tattoo.element.checked == true){
     tattoo.element.checked = false;
   }
-  setCss(ambassador.element);
+  refreshUI(ambassador.element);
 });
 
 // Calculate discounts every time we check something
@@ -102,7 +102,7 @@ function dt_discount_amount(){
 }
 
 // Styling:
-function setCss(elem){
+function refreshUI(elem){
   discounts.forEach(function(discount){
     elem = discount.element;
     if(elem.checked == true){
@@ -111,4 +111,11 @@ function setCss(elem){
       elem.parentNode.parentNode.classList.remove('checked');
     }
   })
+  if(tattoo.element.checked == true){
+    dtAmountInput.value = '';
+    dtAmountInput.disabled = true;
+  } else {
+    dtAmountInput.disabled = false;
+  }
+
 }
