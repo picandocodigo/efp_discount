@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'LeagueGothic';
+  src: url('https://picandocodigo.github.io/efp_discount/fonts/LeagueGothic.otf');
+  url: ('https://picandocodigo.github.io/efp_discount/fonts/LeagueGothic.otf');
+}
+
 #main-title{
   text-transform: uppercase;
+  font-family: 'LeagueGothic';
 }
 
 .discount{
@@ -14,6 +21,7 @@
   transition: background 0.15s;
   display: flex;
   text-transform: uppercase;
+  font-family: 'LeagueGothic';
 }
 
 .discount *{
