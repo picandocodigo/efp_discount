@@ -106,9 +106,9 @@ function setCss(elem){
   discounts.forEach(function(discount){
     elem = discount.element;
     if(elem.checked == true){
-      elem.parentNode.classList.remove('is-outlined');
+      elem.parentNode.parentNode.classList.add('checked');
     } else {
-      elem.parentNode.classList.add('is-outlined');
+      elem.parentNode.parentNode.classList.remove('checked');
     }
   })
 }
