@@ -4,7 +4,7 @@
   url: ('https://picandocodigo.github.io/efp_discount/fonts/LeagueGothic.otf');
 }
 
-#main-title{
+.title{
   text-transform: uppercase;
   font-family: 'LeagueGothic';
 }
@@ -23,11 +23,12 @@
   display: flex;
   text-transform: uppercase;
   font-family: 'LeagueGothic';
+  letter-spacing: 2px;
 }
 
 .discount *{
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .discount.checked, .discount.checked *{
