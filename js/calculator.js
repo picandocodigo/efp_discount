@@ -68,11 +68,13 @@ dtAmountInput.addEventListener('input', function(){
 
 
 function calculate_discounts(){
-  discounted.value = Number((discount_amount() + dt_discount_amount()).toFixed(2));
+  if (can_calculate_dt() || can_calculate_discount()){
+    discounted.value = Number((discount_amount() + dt_discount_amount()).toFixed(2));
+  }
 }
 
 function discount_amount(){
-  if(amountInput.value == '' || amountInput.value == null){
+  if(!can_calculate_discount){
     return 0;
   }
   var totalDiscount = parseFloat(amountInput.value);
@@ -85,7 +87,7 @@ function discount_amount(){
 }
 
 function dt_discount_amount(){
-  if(dtAmountInput.value == '' || dtAmountInput.value == null){
+  if(!can_calculate_dt()){
     return 0;
   }
   var amount = parseFloat(dtAmountInput.value);
@@ -99,6 +101,14 @@ function dt_discount_amount(){
   } else {
     return amount * 0.85;
   }
+}
+
+// Helpers
+function can_calculate_dt(){
+  return !(dtAmountInput.value == '' || dtAmountInput.value == null)
+}
+function can_calculate_discount(){
+  return !(amountInput.value == '' || amountInput.value == null)
 }
 
 // Styling:
@@ -117,5 +127,4 @@ function refreshUI(elem){
   } else {
     dtAmountInput.disabled = false;
   }
-
 }
