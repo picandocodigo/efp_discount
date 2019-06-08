@@ -67,7 +67,7 @@ function calculate_discounts(){
 }
 
 function discount_amount(){
-  if(!can_calculate_discount){
+  if(!can_calculate_discount()){
     return 0;
   }
   var totalDiscount = parseFloat(amountInput.value);
@@ -98,10 +98,10 @@ function dt_discount_amount(){
 
 // Helpers
 function can_calculate_dt(){
-  return !(dtAmountInput.value == '' || dtAmountInput.value == null)
+  return !(dtAmountInput.value == '' || dtAmountInput.value == null);
 }
 function can_calculate_discount(){
-  return !(amountInput.value == '' || amountInput.value == null)
+  return !(amountInput.value == '' || amountInput.value == null);
 }
 
 // Styling:
