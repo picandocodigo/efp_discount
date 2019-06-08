@@ -25,6 +25,7 @@
   text-transform: uppercase;
   font-family: 'LeagueGothic';
   letter-spacing: 2px;
+  margin-bottom: 5px;
 }
 
 .discount *{
