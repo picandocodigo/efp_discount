@@ -37,10 +37,16 @@ efp10.element.addEventListener('change', function(){
 })
 
 tattoo.element.addEventListener('change', function(){
+  if (ambassador.element.checked == true) {
+    ambassador.element.checked = false;
+  }
   refreshUI(this);
 });
 
 ambassador.element.addEventListener('change', function(){
+  if(tattoo.element.checked == true){
+    tattoo.element.checked = false;
+  }
   refreshUI(ambassador.element);
 });
 
@@ -59,6 +65,7 @@ amountInput.addEventListener('input', function(){
 dtAmountInput.addEventListener('input', function(){
   calculate_discounts();
 })
+
 
 function calculate_discounts(){
   if (can_calculate_dt() || can_calculate_discount()){
