@@ -46,6 +46,11 @@
   color: #fff;
 }
 
+.expand{
+  width: 100%;
+  height: 100%;
+}
+
 footer{
   text-align: center;
 }
