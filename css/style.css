@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'LeagueGothic';
-  src: url('https://picandocodigo.github.io/efp_discount/fonts/LeagueGothic.otf');
-  url: ('https://picandocodigo.github.io/efp_discount/fonts/LeagueGothic.otf');
+  src: url('/fonts/LeagueGothic.otf');
+  url: ('/fonts/LeagueGothic.otf');
 }
 
 .title{
