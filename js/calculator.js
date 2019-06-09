@@ -130,6 +130,7 @@ function refreshUI(){
   if(tattoo.element.checked == true){
     dtAmountInput.value = '';
     dtAmountInput.disabled = true;
+    discounted.value = '';
   } else {
     dtAmountInput.disabled = false;
   }
