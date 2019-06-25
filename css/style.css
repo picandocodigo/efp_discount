@@ -18,7 +18,7 @@
   margin-right: 5px;
   line-height: 1;
   box-sizing: border-box;
-  min-height: 30px !;
+  min-height: 30px;
   align-items: center;
   transition: background 0.15s;
   display: flex;
@@ -31,6 +31,10 @@
 .discount *{
   color: #fff;
   font-size: 1.2em;
+}
+
+.is-white{
+  color: #fff;
 }
 
 .discount.checked, .discount.checked *{
