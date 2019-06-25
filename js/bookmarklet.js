@@ -1,6 +1,6 @@
 var discount = localStorage.getItem('brewdog_shop_discount');
 if (!discount || discount == 1){
-  discount = (100 - Number(window.prompt("How much discount do you get? (10% 20%)", 10))) / 100;
+  discount = (100 - Number(window.prompt("How much discount percent do you get? (10/15/20)", 10))) / 100;
   localStorage.setItem('brewdog_shop_discount', discount);
 }
 var prices = document.getElementsByClassName("price");
