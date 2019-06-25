@@ -33,6 +33,11 @@
   font-size: 1.2em;
 }
 
+video{
+  border: 1px solid #000;
+  margin: 20px;
+}
+
 .is-white{
   color: #fff;
 }
