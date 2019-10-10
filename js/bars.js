@@ -1,12 +1,15 @@
 require(
   ['jquery'],
   function ($) {
+    var regexp = /\/bars\/(uk|global)/g;
+    var market = regexp.exec(window.location.pathname)[1];
+
     function displayRecords(lim, off) {
       $.ajax({
         type: "GET",
         async: true,
         url: "https://www.brewdog.com/uk/bars/index/load/",
-        data: "limit=" + lim + "&p=" + off + "&category=" + "uk" +
+        data: "limit=" + lim + "&p=" + off + "&category=" + market +
           "" +
           "&lat=0&lng=0",
         cache: false,
