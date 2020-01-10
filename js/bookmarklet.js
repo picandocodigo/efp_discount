@@ -6,6 +6,5 @@ if (!discount || discount == 1){
 var prices = document.getElementsByClassName("price");
 for(var i = 0; i < prices.length; i++){
   price = parseFloat(prices[i].innerHTML.replace("£", ""));
-  price = Number(price * parseFloat(discount)).toFixed(2);
-  prices[i].innerHTML = "£" + price;
+  prices[i].innerHTML = "£" + Number(price * parseFloat(discount)).toFixed(2);
 }
