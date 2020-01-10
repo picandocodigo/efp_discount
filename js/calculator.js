@@ -19,8 +19,12 @@ var tattoo = {
   element: document.getElementById("tattoo"),
   discount: 20
 };
+var mylocal = {
+  element: document.getElementById("mylocal"),
+  discount: 2.5
+}
 var doubled = document.getElementById("doubled");
-var discounts = [efp5, efp10, ambassador, tattoo];
+var discounts = [efp5, efp10, ambassador, tattoo, mylocal];
 
 
 // Exclude/uncheck discounts that don't apply
@@ -50,6 +54,10 @@ ambassador.element.addEventListener('change', function(){
 doubled.addEventListener('change', function(){
   refreshUI();
 })
+
+mylocal.element.addEventListener('change', function(){
+  refreshUI();
+});
 
 // Calculate discounts every time we check something
 discounts.forEach(function(disc){
